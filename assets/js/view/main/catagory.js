@@ -1,17 +1,27 @@
+import { getCategories } from "../../models/dummyjson.js";
+
 export default function catagory(updateCards) {
-	const dropdown = document.createElement("select");
-	const categories = ["All categories", "Beauty", "Fragrances", "Furniture", "Groceries"];
+	const categories = document.createElement("div");
 
-	categories.forEach((category) => {
-		const option = document.createElement("option");
-		option.value = category === "All categories" ? "all" : category.toLowerCase();
-		option.textContent = category;
-		dropdown.appendChild(option);
-	});
+	getCategories()
+		.then((items) => {
+			items.forEach((category) => {
+				const button = document.createElement("button");
+				button.type = "button";
+				button.textContent = category.name;
+				button.addEventListener("click", () => {
+					if (updateCards) updateCards(category.slug);
+				});
+				categories.appendChild(button);
+			});
 
-	dropdown.addEventListener("change", () => {
-		if (updateCards) updateCards(dropdown.value);
-	});
+			if (items.length > 0 && updateCards) {
+				updateCards(items[0].slug);
+			}
+		})
+		.catch(() => {
+			categories.textContent = "Categories could not be loaded.";
+		});
 
-	return dropdown;
+	return categories;
 }
