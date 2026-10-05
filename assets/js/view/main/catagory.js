@@ -1,4 +1,4 @@
-import { getCategories } from "../../models/dummyjson.js";
+import { getCategories } from "../../model/dummyjson.js";
 
 export default function catagory(updateCards) {
 	const categories = document.createElement("div");
