@@ -1,11 +1,14 @@
 import productcard from "./productcard.js";
+import { rendersortcomponent } from "./sortcomponent.js"
 
-export default function products(productData) {
+export default function products(productData, parentelement) {
+	console.log(productData)
 	const productList = document.createElement("div");
+	productList.appendChild(rendersortcomponent(productData))
 
 	productData.forEach((product) => {
 		productList.appendChild(productcard(product));
 	});
-
-	return productList;
+	parentelement.innerHTML = ""			
+	parentelement.appendChild(productList)
 }
