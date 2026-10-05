@@ -1,5 +1,6 @@
 export default function basket(){
     const basketdiv = document.createElement("div")
+    basketdiv.className = "shop-basket";
     const basketimg = document.createElement("img")
     basketimg.src = "assets/img/gyattmanden.jpg"
     const baskettxt = document.createElement("p")

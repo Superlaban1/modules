@@ -9,7 +9,9 @@ import products from "./view/main/products.js";
 
 const app = document.getElementById("appID");
 const main = document.createElement("main");
+main.className = "shop-layout";
 const productContainer = document.createElement("section");
+productContainer.className = "product-section";
 let currentProducts = [];
 let sortOption = "Default";
 

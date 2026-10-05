@@ -1,5 +1,6 @@
 export default function productcard(product) {
 	const card = document.createElement("div");
+	card.className = "product-card";
 	const image = document.createElement("img");
 	const name = document.createElement("h2");
 	const price = document.createElement("p");

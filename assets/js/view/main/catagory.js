@@ -2,6 +2,7 @@ import { getCategories } from "../../model/dummyjson.js";
 
 export default function catagory(updateCards) {
 	const categories = document.createElement("div");
+	categories.className = "category-list";
 
 	getCategories()
 		.then((items) => {

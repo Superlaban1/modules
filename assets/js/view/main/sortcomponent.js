@@ -3,6 +3,7 @@ import { sortProducts } from "../../controller/sortbycallback.js"
 export function rendersortcomponent(mydata) {
 
 	const div = document.createElement("div");
+	div.className = "sort-control";
 
 	const dropdown = document.createElement("select");
 	const sortOptions = ["Default", "Price: low to high", "Price: high to low"];
